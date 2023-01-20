@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ref_mission: MyString
+  ref_consultant: MyString
+  mois_1_descr: MyString
+  mois_2_descr: MyString
+  mois_3_descr: MyString
+  mois_4_descr: MyString
+
+two:
+  ref_mission: MyString
+  ref_consultant: MyString
+  mois_1_descr: MyString
+  mois_2_descr: MyString
+  mois_3_descr: MyString
+  mois_4_descr: MyString

@@ -1,0 +1,61 @@
+<%= form_with(model: mission) do |form| %>
+  <% if mission.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(mission.errors.count, "error") %> prohibited this mission from being saved:</h2>
+
+      <ul>
+        <% mission.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :référence_mission, style: "display: block", class:"form-label-edit" %>
+    <%= form.text_field :ref_mission, class:"form-control" %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :référence_consultant, style: "display: block", class:"form-label-edit" %>
+    <%= form.text_field :ref_consultant, class:"form-control"%>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :novembre, style: "display: block", class:"form-label-edit" %>
+    <%= form.text_field :mois_1_descr, class:"form-control" %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :décembre, style: "display: block", class:"form-label-edit" %>
+    <%= form.text_field :mois_2_descr, class:"form-control" %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :janvier, style: "display: block", class:"form-label-edit" %>
+    <%= form.text_field :mois_3_descr, class:"form-control" %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :février, style: "display: block", class:"form-label-edit" %>
+    <%= form.text_field :mois_4_descr, class:"form-control" %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit class:"btn btn-secondary btn-submit-form" %>
+  </div>
+<% end %>
+
+

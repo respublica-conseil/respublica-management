@@ -1,0 +1,36 @@
+
+<br>
+
+<div class="jumbotron bg-secondary bg-gradient bg-opacity-10">
+  <div class="container">
+    <h1 class="display-4">
+      <%= @mission.ref_mission %> |
+      <span class="ref-consultant-label"><%= @mission.ref_consultant %></span>
+    </h1>
+    <br>
+    <p class="lead">
+      <p class="mois-descr-label">NOVEMBRE : </p>
+      <%= @mission.mois_1_descr %> 
+      <br><br>
+      <p class="mois-descr-label">DÉCEMBRE : </p> 
+      <%= @mission.mois_2_descr %> 
+      <br><br>
+      <p class="mois-descr-label">JANVIER : </p>
+      <%= @mission.mois_3_descr %>
+      <br><br>
+      <p class="mois-descr-label">FÉVRIER : </p>
+      <%= @mission.mois_4_descr %>
+    </p>
+    <br>
+    <%= link_to "Éditer cette mission", edit_mission_path(@mission), class:"btn btn-secondary btn-edit-mission" %> 
+    <%= link_to "Reour à Missions", mission_path, class:"btn btn-dark" %>
+    <br><br><br>
+    <%= button_to "Détruire cette mission", @mission, method: :delete, class:"btn btn-danger" %>
+    <br>
+  </div>
+<div>
+
+
+
+
+

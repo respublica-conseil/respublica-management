@@ -1,0 +1,40 @@
+
+<br>
+
+<h1>Liste des missions en cours</h1>
+
+<br>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr class="table-missions">
+      <th>Référence mission</th>
+      <th>Référence consultant</th>
+      <th>NOVEMBRE</th>
+      <th>DÉCEMBRE</th>
+      <th>JANVIER</th>
+      <th>FÉVRIER</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @missions.each do |mission| %>
+      <tr>
+        <td><%= link_to mission.ref_mission, class:"test" %></td>
+        <td><%= mission.ref_consultant %></td>
+        <td><%= mission.mois_1_descr %></td>
+        <td><%= mission.mois_2_descr %></td>
+        <td><%= mission.mois_3_descr %></td>
+        <td><%= mission.mois_4_descr %></td>
+        
+        <td><%= link_to "Show", mission %></td>
+        <td><%= link_to "Edit", edit_mission_path(mission) %></td>
+        <td><%= link_to 'Delete', mission%></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Ajouter mission', new_mission_path, class:"btn btn-add-mission" %>
+

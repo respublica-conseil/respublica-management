@@ -1,0 +1,55 @@
+/*Mieux structurer 
+
+
+/*HEADER*/
+
+/* change the background color */
+nav {
+    background-color: rgba(20, 60, 247, 0.8);
+}
+
+
+/*AUTRES*/
+
+.table-missions {
+    background-color: rgba(126, 132, 247, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(94, 94, 94);
+    text-align: center;
+}
+
+.form-label-edit {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(94, 94, 94);
+}
+
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-search, .btn-submit-form {
+    /*color: red;*/
+    background-color: rgb(94, 94, 94);
+    color: #fff;
+}
+
+.btn-add-mission {
+    background-color: rgb(94, 94, 94);
+    color: #fff;
+}
+
+.mois-descr-label {
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+}
+
+.ref-consultant-label {
+    /*color: rgba(255, 127, 39, 0.7);*/
+    color: rgba(126, 132, 247, 0.5);
+}
+
+.btn-edit-mission {
+    background-color: rgb(94, 94, 94);
+    color: #fff;
+}
