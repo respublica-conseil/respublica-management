@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>S'inscrire</title>
+    <style>
+
+    body {
+			font-family: Arial, sans-serif;
+			background-color: #f8f9fa;
+		}
+
+		h1 {
+			font-size: 3rem;
+			color: #977CA4;
+			text-align: center;
+			margin-top: 50px;
+		}
+
+    
+        /* Styles for the form */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+        }
+
+        /* Styles for the form inputs */
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #b6a8bd;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>S'inscrire</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <%= form_with model: @user, url: sign_up_path, method: "post" do |form| %>
+                    <% if form.object.errors.any? %>
+                        <div class="alert alert-danger">
+                            <% form.object.errors.full_messages.each do |message| %>
+                                <div><%= message %></div>
+                            <% end %>
+                        </div>
+                    <% end %>
+
+                    <div class="mb-3">
+                        <%= form.label :email %>
+                        <%= form.text_field :email, class: "form-control", placeholder: "Entrez votre email" %>
+                    </div>
+                    <div class="mb-3">
+                        <%= form.label :password %>
+                        <%= form.password_field :password, class: "form-control", placeholder: "Entrez votre mot de passe", autocomplete: "new-password" %>
+                    </div>
+                    <div class="mb-3">
+                        <%= form.label :password_confirmation, "Confirmez votre mot de passe" %>
+                        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirmez votre nouveau mot de passe", autocomplete: "new-password" %>
+                    </div>
+
+                    <div class="mb-3">
+                        <%= form.submit "Créer un utilisateur", class: "btn btn-primary" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <!-- Link Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj

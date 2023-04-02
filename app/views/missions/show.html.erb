@@ -1,0 +1,31 @@
+<div class="container">
+<h1>Mission Details</h1>
+<table class= "table table-striped table-bordered table-hover">
+  <thead>
+    <tr class="table-missions">
+      <th>Référence de la mission</th>
+      <th>Consultant référant</th>
+      <th>Consultants</th>
+      <th>Status de la missions</th>
+      <% @months.each do |month| %>
+     <th><%= month[0].split(' ')[0] %></th>
+      <% end %>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+      <td><%= @mission.mission_reference %></td>
+      <td><%= @mission.consultant_reference %></td>
+      <td><%= @mission.consultants %></td>
+      <td><%= @mission.mission_status %></td>
+      <% @months.each do |month| %>
+      <% month_name = month[0].split(' ')[0] %>
+      <td><%= @mission.send(month_name) %></td>
+      <% end %>
+      </tr>
+        </tbody>
+</table>
+<td><%= link_to 'Ajouter une description', edit2_mission_path(@mission) %></td>
+<%= link_to 'Retour au Missions', missions_path %>
+</div>

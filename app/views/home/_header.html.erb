@@ -1,0 +1,66 @@
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+    <a class="navbar-brand mx-auto" href="#"></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      <li div class="image"> <img src="https://uploads-ssl.webflow.com/5ff6dddca273566b31773bde/60dde7eac20fb2839b09a13c_Logo-Respublica-bleu-01.png" height="30" width="280" alt="sometext">
+      <h2>Management</h2>
+  </li>
+
+        <li class="nav-item">
+        <%= link_to 'ACCUEIL', root_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'CONSULTANTS', consultants_path, class:"nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'MISSIONS', missions_path, class:"nav-link" %>
+        </li>
+        
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if Current.user %>
+        <li class="nav-item">
+          <%= link_to Current.user.email, edit_password_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= button_to "Deconnexion", logout_path, method: :delete, class: "nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "S'inscrire", sign_up_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Se connecter", sign_in_path, class: "nav-link" %>
+        </li>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

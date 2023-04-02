@@ -1,0 +1,28 @@
+<div class="container">
+<h1>Nouveau Consultant</h1>
+<p></p>
+<td><%= button_to "Retour aux consultants", consultants_path, method: :get, class: 'btn btn-primary' %></td>
+<p></p>
+
+<%= form_with model: @consultant, url: consultants_path do |form| %>
+  <div class=form-group>
+    <%= form.label :Nom %>
+    <%= form.text_field :last_name %>
+  </div>
+  <p></p>
+  <div class=form-group>
+    <%= form.label :Prénom  %>
+    <%= form.text_field :first_name%>
+  </div>
+  <p></p>
+  <div class=form-group>
+    <%= form.label :Email %>
+    <p></p>
+    <%= form.email_field :email %>
+  </div>
+<div class=actions>
+  <%= form.submit "Ajouter un consultant" %>
+</div>
+<% end %>
+
+</div>

@@ -1,0 +1,49 @@
+<div class="container">
+<h1>Consultants</h1>
+<p></p>
+<td><%= button_to "Ajouter un consultant", new_consultant_path, method: :get, class: 'btn btn-primary' %></td>
+<p></p>
+<% if @consultants.nil? || @consultants.empty? %>
+  <p>Pas de consultants</p>
+<% else %>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr class="table-consutlants">
+      <th>Nom Prénom</th>
+      <th>N° missions Référent</th> 
+      <th>N° missions</th>
+      <th>N° missions tot</th>
+      <th>Charge Mars</th>
+      <th>Charge Avril</th>
+      <th>Charge Mai</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @consultants.each do |consultant| %>
+      <tr>
+        <td><%= consultant.full_name %></td>
+        <td class="text-center"><%= consultant.num_missions_ref%></td>
+        <td class="text-center"><%= consultant.missions_count %></td>
+        <td class="text-center"><%= consultant.missions_count +  consultant.num_missions_ref%></td>
+        <td class="text-center"><%= consultant.charge_sum_mars%></td>
+        <td class="text-center"><%= consultant.charge_sum_april%></td>
+        <td class="text-center"><%= consultant.charge_sum_may%></td>
+
+        <td class="centre">
+  <%= button_to edit_charges_consultant_path(consultant), method: :get, class: 'btn btn-primary' do %>
+    <i class="fas fa-pencil-alt"></i> Modifier les charges
+  <% end %>
+</td>
+      <td>
+      <%= button_to consultant_path(consultant), method: :delete, data: { confirm: 'êtes-vous sûr de vouloir supprimer ce consultant ?' }, class: "btn btn-danger" do %>
+        <i class="fa fa-trash"></i> Supprimer
+      <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+</div>

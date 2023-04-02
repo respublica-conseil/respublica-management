@@ -1,0 +1,28 @@
+<div class="container">
+
+<h1>Description des tâches par mois</h1>
+<p></p>
+<td><%= button_to "Retour aux missions", missions_path, method: :get, class: 'btn btn-primary' %></td>
+<p></p>
+<%= form_with model: @mission, url: update2_mission_path(@mission), method: :patch do |form| %>
+  
+  <div class=form-group>
+    <%= form.label :Mars%>
+    <%= form.text_field :Mars,size: 40%>
+  </div>
+  <p></p>
+<div class=form-group>
+    <%= form.label :Avril%>
+    <%= form.text_field :Avril,size: 40%>
+  </div>
+  <p></p>
+<div class=form-group>
+    <%= form.label :Mai%>
+    <%= form.text_field :Mai,size: 40%>
+  </div>
+  <p></p>
+  <div class="actions">
+    <%= form.submit "Ajouter description mission" %>
+  </div>
+<% end %>
+</div>

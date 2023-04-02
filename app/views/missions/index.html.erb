@@ -1,0 +1,79 @@
+<div class="container">
+
+<h1>Missions</h1>
+
+<td><%= button_to 'Ajouter une mission', new_mission_path, method: :get, class: 'btn btn-primary' %></td>
+<p></p>
+<% if @missions.nil? || @missions.empty? %>
+  <p>Pas de missions</p>
+<% else %>
+<div></div>
+<table class= "table table-striped table-bordered table-hover">
+  <thead>
+    <tr class="table-missions">
+      <th>Réf</th>
+      <th>Nom</th>
+      <th>Consultant référant</th>
+      <th>Consultants</th>
+      <th>Type</th>
+      <th>Statut</th>
+      <th>Début</th>
+      <th>Fin</th>
+      <th>Mars</th>
+      <th>Avril</th>
+      <th>Mai</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @missions.each do |mission| %>
+      <tr>
+        <td><%= mission.mission_reference %></td>
+        <td><%= mission.nom %></td>
+        <td><%= mission.consultant_reference %></td>
+        <td><% mission.consultants.reject(&:empty?).each do |name|%>
+        <%if !name.is_a?(Array)%>
+             <li><%= name %></li>
+        <% end %>
+        <% end %>
+        </td>
+        <td><%= mission.mission_type %></td>
+        <td><%= mission.mission_status %></td>
+        <td>
+         <% if mission.start_date.present? %>
+        <%= mission.start_date.strftime('%Y-%m-%d') %>
+          <% else %>
+        <%= mission.start_date%>
+        <% end %>
+         </td>
+        <td>
+         <% if mission.end_date.present? %>
+        <%= mission.end_date.strftime('%Y-%m-%d') %>
+          <% else %>
+        <%= mission.end_date%>
+        <% end %>
+         </td>
+        <td><%= mission.Mars %></td>
+        <td><%= mission.Avril %></td>
+        <td><%= mission.Mai %></td>
+               <td class="centre">
+  <%= button_to edit2_mission_path(mission), method: :get, class: 'btn btn-primary' do %>
+    <i class="fas fa-pencil-alt"></i> Modifier les tâches
+  <% end %>
+</td>
+        <td class="centre">
+  <%= button_to edit_mission_path(mission), method: :get, class: 'btn btn-primary' do %>
+    <i class="fas fa-pencil-alt"></i> Modifier la mission
+  <% end %>
+</td>
+<td>
+      <%= button_to mission_path(mission), method: :delete, data: { confirm: 'êtes-vous sûr de vouloir supprimer cette mission ?' }, class: "btn btn-danger" do %>
+        <i class="fa fa-trash"></i> Supprimer
+      <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+</div>

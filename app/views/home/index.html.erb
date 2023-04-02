@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Vue Croisée</h1>
+  <p></p>
+<% if @missions.nil? || @missions.empty? %>
+  <p>Aucune information à afficher</p>
+<% else %>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr class="table-consutlants">
+        <th>Nom des consultants</th>
+        <% @missions.each do |mission| %>
+          <th class= centre><%= mission.mission_reference %> - <%= mission.nom %></th>
+        <% end %>
+        <th>Charge totale</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @consultants.each do |consultant| %>
+        <tr>
+          <td class="centre" ><%= consultant.full_name %></td>
+          <% @missions.each do |mission|%>
+            <% charge = Charge.where(consultant_full_name: consultant.full_name , mission_reference: mission.mission_reference).first %>
+            <% if charge.present? %>
+              <td><span class="text_color">Type: </span><%= mission.mission_type%>
+                <p></p>
+                <span class="text_color">Statut: </span> <%= mission.mission_status%>
+                <p></p>
+                <li><span class="text_color">Charge en mars :</span> <%= charge.march_charge%> jours</li>
+                <li><span class="text_color">Charge en avril :</span><%= charge.april_charge%> jours</li>
+                <li><span class="text_color">Charge en mai :</span><%= charge.may_charge%> jours</li>
+              </ul></td>
+            <% else %>
+              <td class= "centre">Non affecté</td>
+            <% end %>
+          <% end %>
+          <td>
+            <p></p>
+            <li><span class="text_color">Mars : </span><%= consultant.charge_sum_mars%> jours</li>
+            <li><span class="text_color">Avril : </span><%= consultant.charge_sum_april%> jours</li>
+            <li><span class="text_color">Mai : </span><%= consultant.charge_sum_may%> jours</li>
+          </td>
+          <td class="centre">
+  <%= button_to edit_charges_consultant_path(consultant), method: :get, class: 'btn btn-primary' do %>
+    <i class="fas fa-pencil-alt"></i> Modifier les charges
+  <% end %>
+</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>
+
